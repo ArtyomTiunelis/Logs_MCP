@@ -1,5 +1,4 @@
 # Logs MCP
-# Logs_MCP
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that lets an AI assistant search application logs across load-balanced Windows servers over UNC file shares.
 
