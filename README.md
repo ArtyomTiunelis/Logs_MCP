@@ -1,4 +1,5 @@
-# Logs MCP
+
+# Logs_MCP
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that lets an AI assistant search application logs across load-balanced Windows servers over UNC file shares.
 
@@ -56,7 +57,7 @@ Logs_MCP (stdio MCP server)
   -> returns summary + hits (with stable `hit_id` values)
 ```
 
-The mapping and UNC path settings are driven by `appsettings.json`.
+The mapping and UNC path settings are driven by `appsettings.json` (local) with `appsettings.example.json` as the tracked baseline.
 
 ---
 
@@ -80,7 +81,13 @@ dotnet build
 
 ### 2. Configure server mappings
 
-Edit `appsettings.json`:
+Copy the example and edit your local file:
+
+```powershell
+copy appsettings.example.json appsettings.json
+```
+
+Then edit `appsettings.json`:
 
 ```json
 {
@@ -131,6 +138,9 @@ Example (`mcp.json`):
 ---
 
 ## Configuration Reference
+
+- `appsettings.example.json`: tracked in Git; safe template for new contributors.
+- `appsettings.json`: local overrides; ignored by Git.
 
 ```jsonc
 {

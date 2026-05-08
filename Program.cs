@@ -12,10 +12,15 @@ var builder = Host.CreateApplicationBuilder(args);
 
 builder.Logging.AddConsole(o => o.LogToStandardErrorThreshold = LogLevel.Trace);
 
-builder.Configuration.AddJsonFile(
-    Path.Combine(AppContext.BaseDirectory, "appsettings.json"),
-    optional: false,
-    reloadOnChange: false);
+builder.Configuration
+    .AddJsonFile(
+        Path.Combine(AppContext.BaseDirectory, "appsettings.example.json"),
+        optional: false,
+        reloadOnChange: false)
+    .AddJsonFile(
+        Path.Combine(AppContext.BaseDirectory, "appsettings.json"),
+        optional: true,
+        reloadOnChange: false);
 
 // Bind the LogSearch section from appsettings.json into LogSearchOptions
 builder.Services
